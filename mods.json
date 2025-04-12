@@ -2,7 +2,7 @@
   {
     "name": "Chaos Campaign",
     "description": "It's time Medusa got a chance to tell her side of the story :)",
-    "file": "hard-mode.zip",
+    "file": "https://github.com/AsePlayer/Chaos-Campaign/raw/refs/heads/main/chaoscampaign_v0.99_OrderContinues.swf",
     "link": "https://github.com/AsePlayer/Chaos-Campaign",
     "tags": ["Chaos", "Campaign", "Custom Units"],
     "image": "mods/chaos-campaign/banner.png"
@@ -24,11 +24,11 @@
     "image": "mods/chaos-campaign/banner.png"
   },
   {
-    "name": "Epic Campaign Remix",
-    "description": "OK NOW THIS IS EPIC.",
-    "file": "epic-campaign.zip",
-    "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/epic-campaign",
-    "tags": ["Story", "Remix"],
-    "image": "mods/chaos-campaign/banner.png"
+    "name": "2v2",
+    "description": "Each battle features 2 tribes battling it out with epic custom units and unique spawning!",
+    "file": "mods/2v2/2v2.swf",
+    "link": "mods/2v2/",
+    "tags": ["Order (SW1)", "Custom Units"],
+    "image": "mods/2v2/banner.jpg"
   }
 ]
