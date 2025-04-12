@@ -1,32 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stick War Mods</title>
   <style>
-    body { font-family: sans-serif; background: #f0f0f0; padding: 40px; }
-    h1 { color: #333; }
-    .mod-list a {
-      display: block;
-      margin: 10px 0;
-      color: #007acc;
-      text-decoration: none;
-      background: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-      transition: background 0.2s;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7f7;
+      padding: 2rem;
+      color: #333;
     }
-    .mod-list a:hover {
-      background: #e0f7ff;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    input, select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+
+    .mods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mod-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .mod-card:hover {
+      transform: scale(1.02);
+    }
+
+    .mod-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .mod-tags {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .mod-tags span {
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #007acc;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background: #005fa3;
     }
   </style>
 </head>
 <body>
+
   <h1>Stick War Mods</h1>
-  <div class="mod-list">
-    <a href="mod1.zip" download>Download Mod 1</a>
-    <a href="mod2.zip" download>Download Mod 2</a>
-    <!-- Add more as needed -->
+
+  <div id="controls">
+    <input type="text" id="search" placeholder="Search mods..." />
+    <select id="tag-filter">
+      <option value="all">All Tags</option>
+    </select>
   </div>
+
+  <div class="mods-grid" id="mods-container"></div>
+
+  <script>
+    const modsContainer = document.getElementById('mods-container');
+    const searchInput = document.getElementById('search');
+    const tagFilter = document.getElementById('tag-filter');
+
+    let mods = [];
+
+    async function fetchMods() {
+      const res = await fetch('mods.json');
+      mods = await res.json();
+      populateTagFilter();
+      displayMods(mods);
+    }
+
+    function populateTagFilter() {
+      const allTags = new Set();
+      mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
+
+      [...allTags].sort().forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag;
+        tagFilter.appendChild(option);
+      });
+    }
+
+    function displayMods(modList) {
+      modsContainer.innerHTML = '';
+
+      modList.forEach(mod => {
+        const card = document.createElement('div');
+        card.className = 'mod-card';
+
+        card.innerHTML = `
+          <div class="mod-title">${mod.name}</div>
+          <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
+          <a class="download-btn" href="${mod.file}" download>Download</a>
+        `;
+
+        modsContainer.appendChild(card);
+      });
+    }
+
+    function filterAndSearchMods() {
+      const query = searchInput.value.toLowerCase();
+      const selectedTag = tagFilter.value;
+
+      const filtered = mods.filter(mod => {
+        const matchesSearch = mod.name.toLowerCase().includes(query);
+        const matchesTag = selectedTag === 'all' || mod.tags.includes(selectedTag);
+        return matchesSearch && matchesTag;
+      });
+
+      displayMods(filtered);
+    }
+
+    searchInput.addEventListener('input', filterAndSearchMods);
+    tagFilter.addEventListener('change', filterAndSearchMods);
+
+    fetchMods();
+  </script>
 </body>
 </html>
