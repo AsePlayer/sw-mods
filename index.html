@@ -7,9 +7,24 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f7f7f7;
       padding: 2rem;
       color: #333;
+      position: relative;
+      min-height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Optional overlay for better text visibility */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.6);
+      z-index: -1;
     }
 
     h1 {
@@ -121,11 +136,10 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    
+
     .mod-image:hover {
       transform: scale(1.05);
     }
-
 
     /* Lightbox styles */
     #lightbox {
@@ -178,6 +192,28 @@
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
 
+    const bgImages = [
+      'backgrounds/1.jpg',
+      'backgrounds/2.jpg',
+      'backgrounds/3.jpg',
+      'backgrounds/4.jpg',
+      'backgrounds/5.jpg',
+      'backgrounds/6.jpg',
+      'backgrounds/7.jpg',
+      'backgrounds/8.jpg',
+      'backgrounds/9.jpg',
+      'backgrounds/10.jpg',
+      'backgrounds/11.jpg',
+      'backgrounds/12.jpg'
+    ];
+
+    function setRandomBackground() {
+      const randomIndex = Math.floor(Math.random() * bgImages.length);
+      const selected = bgImages[randomIndex];
+      document.body.style.background = `url('${selected}') no-repeat center center fixed`;
+      document.body.style.backgroundSize = 'cover';
+    }
+
     let mods = [];
 
     async function fetchMods() {
@@ -220,12 +256,10 @@
 
         card.innerHTML = `
           <div class="mod-info">
-          <div class="mod-title">${mod.name}</div>
-          <div class="mod-tags">
-          ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
-          </div>
-          <div class="mod-description">${mod.description || ''}</div>
-          <div class="mod-buttons">
+            <div class="mod-title">${mod.name}</div>
+            <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
+            <div class="mod-description">${mod.description || ''}</div>
+            <div class="mod-buttons">
               <a class="download-btn" href="${mod.file}" download>Download</a>
               <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
             </div>
@@ -258,7 +292,6 @@
       displayMods(filtered);
     }
 
-    // Lightbox close on click
     lightbox.addEventListener('click', () => {
       lightbox.style.display = 'none';
       lightboxImg.src = '';
@@ -267,6 +300,7 @@
     searchInput.addEventListener('input', filterAndSearchMods);
     tagFilter.addEventListener('change', filterAndSearchMods);
 
+    setRandomBackground();
     fetchMods();
   </script>
 </body>
