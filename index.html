@@ -214,12 +214,12 @@
 
         card.innerHTML = `
           <div class="mod-info">
-            <div class="mod-title">${mod.name}</div>
-            <div class="mod-description">${mod.description || ''}</div>
-            <div class="mod-tags">
-              ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
-            </div>
-            <div class="mod-buttons">
+          <div class="mod-title">${mod.name}</div>
+          <div class="mod-tags">
+          ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
+          </div>
+          <div class="mod-description">${mod.description || ''}</div>
+          <div class="mod-buttons">
               <a class="download-btn" href="${mod.file}" download>Download</a>
               <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
             </div>
