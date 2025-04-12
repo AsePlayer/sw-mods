@@ -38,8 +38,6 @@
 
     .mod-card {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
       background: white;
       padding: 1rem;
       border-radius: 10px;
@@ -59,6 +57,13 @@
 
     .mod-title {
       font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .mod-description {
+      font-size: 0.95rem;
+      color: #444;
       margin-bottom: 0.5rem;
     }
 
@@ -113,6 +118,27 @@
       height: auto;
       border-radius: 8px;
       object-fit: cover;
+      cursor: pointer;
+    }
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -134,10 +160,17 @@
 
   <div class="mods-grid" id="mods-container"></div>
 
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="Full mod preview" />
+  </div>
+
   <script>
     const modsContainer = document.getElementById('mods-container');
     const searchInput = document.getElementById('search');
     const tagFilter = document.getElementById('tag-filter');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
 
     let mods = [];
 
@@ -175,11 +208,14 @@
         const card = document.createElement('div');
         card.className = 'mod-card';
 
-        const imageHTML = mod.image ? `<img class="mod-image" src="${mod.image}" alt="${mod.name} screenshot"/>` : '';
+        const imageHTML = mod.image
+          ? `<img class="mod-image" src="${mod.image}" alt="${mod.name}" data-full="${mod.image}" />`
+          : '';
 
         card.innerHTML = `
           <div class="mod-info">
             <div class="mod-title">${mod.name}</div>
+            <div class="mod-description">${mod.description || ''}</div>
             <div class="mod-tags">
               ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
             </div>
@@ -190,6 +226,14 @@
           </div>
           ${imageHTML}
         `;
+
+        const img = card.querySelector('.mod-image');
+        if (img) {
+          img.addEventListener('click', () => {
+            lightboxImg.src = img.dataset.full;
+            lightbox.style.display = 'flex';
+          });
+        }
 
         modsContainer.appendChild(card);
       });
@@ -207,6 +251,12 @@
 
       displayMods(filtered);
     }
+
+    // Lightbox close on click
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
 
     searchInput.addEventListener('input', filterAndSearchMods);
     tagFilter.addEventListener('change', filterAndSearchMods);
