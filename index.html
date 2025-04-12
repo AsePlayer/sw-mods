@@ -108,6 +108,7 @@
       <option value="Chaos">Chaos</option>
       <option value="Elementals">Elementals</option>
       <option value="Order (SW1)">Order (SW1)</option>
+      <option disabled>────────────</option>
     </select>
   </div>
 
@@ -127,24 +128,28 @@
       displayMods(mods);
     }
 
-      function populateTagFilter() {
-        const existingValues = new Set();
-        Array.from(tagFilter.options).forEach(option => existingValues.add(option.value));
+    function populateTagFilter() {
+      const existingValues = new Set();
+      Array.from(tagFilter.options).forEach(option => {
+        if (option.disabled) return; // skip dividers
+        existingValues.add(option.value);
+      });
     
-        const allTags = new Set();
-        mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
-      
-        [...allTags]
-          .sort()
-          .forEach(tag => {
-            if (!existingValues.has(tag)) {
-              const option = document.createElement('option');
-              option.value = tag;
-              option.textContent = tag;
-              tagFilter.appendChild(option);
-            }
-          });
+      const allTags = new Set();
+      mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
+    
+      [...allTags]
+        .sort()
+        .forEach(tag => {
+          if (!existingValues.has(tag)) {
+            const option = document.createElement('option');
+            option.value = tag;
+            option.textContent = tag;
+            tagFilter.appendChild(option);
+          }
+        });
     }
+
 
 
     function displayMods(modList) {
