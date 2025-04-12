@@ -66,9 +66,15 @@
       margin-right: 5px;
     }
 
-    .download-btn {
-      display: inline-block;
+    .mod-buttons {
+      display: flex;
+      gap: 0.5rem;
       margin-top: 0.5rem;
+    }
+
+    .download-btn,
+    .view-btn {
+      display: inline-block;
       background: #007acc;
       color: white;
       padding: 0.4rem 0.8rem;
@@ -79,6 +85,14 @@
 
     .download-btn:hover {
       background: #005fa3;
+    }
+
+    .view-btn {
+      background: #555;
+    }
+
+    .view-btn:hover {
+      background: #333;
     }
   </style>
 </head>
@@ -131,7 +145,10 @@
         card.innerHTML = `
           <div class="mod-title">${mod.name}</div>
           <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
-          <a class="download-btn" href="${mod.file}" download>Download</a>
+          <div class="mod-buttons">
+            <a class="download-btn" href="${mod.file}" download>Download</a>
+            <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
+          </div>
         `;
 
         modsContainer.appendChild(card);
