@@ -12,7 +12,7 @@
       position: relative;
       min-height: 100vh;
       background-size: cover;
-      background-repeat: no-repeat; 
+      background-repeat: no-repeat;
       background-position: center;
       margin: 0;
     }
@@ -33,18 +33,16 @@
       color: white;
     }
 
-    p.download-flash {
+    p.download-links {
       text-align: center;
-      margin-top: -0.5rem;
-      margin-bottom: 2rem;
+      margin-top: -0.25rem;
       color: white;
-      font-size: 1rem;
     }
 
-    p.download-flash a {
+    p.download-links a {
       color: #00c3ff;
       text-decoration: underline;
-      margin: 0 0.25rem;
+      margin: 0 0.2rem;
     }
 
     #controls {
@@ -62,15 +60,26 @@
 
     .mods-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
-      max-width: 1600px;
+      grid-template-columns: 1fr;
+      max-width: 1200px;
       margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .mods-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .mods-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .mod-card {
       display: flex;
-      flex-direction: row;
       background: white;
       padding: 1rem;
       border-radius: 10px;
@@ -85,6 +94,7 @@
     .mod-info {
       flex: 1;
       padding-right: 1rem;
+      max-width: 75%;
     }
 
     .mod-title {
@@ -153,14 +163,12 @@
       object-fit: cover;
       cursor: pointer;
       transition: transform 0.2s ease;
-      flex-shrink: 0;
     }
 
     .mod-image:hover {
       transform: scale(1.05);
     }
 
-    /* Lightbox styles */
     #lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -179,29 +187,11 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
-
-    @media (max-width: 600px) {
-      .mod-card {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .mod-info {
-        padding-right: 0;
-        text-align: center;
-      }
-
-      .mod-image {
-        width: 100%;
-        max-width: 300px;
-        margin-top: 1rem;
-      }
-    }
   </style>
 </head>
 <body>
   <h1>AsePlayer's Stick War Mod List</h1>
-  <p class="download-flash">
+  <p class="download-links">
     Download Flash Player Projector to play these Mods:
     <a href="flash/Windows Flash Projector.zip" download>Windows</a>,
     <a href="flash/Mac Flash Projector.zip" download>Mac</a>,
@@ -242,7 +232,8 @@
     ];
 
     function setRandomBackground() {
-      const selected = bgImages[Math.floor(Math.random() * bgImages.length)];
+      const randomIndex = Math.floor(Math.random() * bgImages.length);
+      const selected = bgImages[randomIndex];
       document.body.style.background = `url('${selected}') no-repeat center center fixed`;
       document.body.style.backgroundSize = 'cover';
     }
@@ -269,7 +260,7 @@
       [...allTags].sort().forEach(tag => {
         if (!existingValues.has(tag)) {
           const option = document.createElement('option');
-          option.value = tag; 
+          option.value = tag;
           option.textContent = tag;
           tagFilter.appendChild(option);
         }
