@@ -57,6 +57,8 @@
       font-size: 0.9rem;
       color: #666;
       margin-bottom: 0.5rem;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .mod-tags span {
@@ -64,6 +66,8 @@
       padding: 2px 6px;
       border-radius: 5px;
       margin-right: 5px;
+      margin-bottom: 3px;
+      display: inline-block;
     }
 
     .mod-buttons {
@@ -98,7 +102,7 @@
 </head>
 <body>
 
-  <h1>Stick War Mods</h1>
+  <h1>AsePlayer's Stick War Mod List</h1>
 
   <div id="controls">
     <input type="text" id="search" placeholder="Search mods..." />
@@ -131,26 +135,22 @@
     function populateTagFilter() {
       const existingValues = new Set();
       Array.from(tagFilter.options).forEach(option => {
-        if (option.disabled) return; // skip dividers
+        if (option.disabled) return;
         existingValues.add(option.value);
       });
-    
+
       const allTags = new Set();
       mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
-    
-      [...allTags]
-        .sort()
-        .forEach(tag => {
-          if (!existingValues.has(tag)) {
-            const option = document.createElement('option');
-            option.value = tag;
-            option.textContent = tag;
-            tagFilter.appendChild(option);
-          }
-        });
+
+      [...allTags].sort().forEach(tag => {
+        if (!existingValues.has(tag)) {
+          const option = document.createElement('option');
+          option.value = tag;
+          option.textContent = tag;
+          tagFilter.appendChild(option);
+        }
+      });
     }
-
-
 
     function displayMods(modList) {
       modsContainer.innerHTML = '';
@@ -161,7 +161,9 @@
 
         card.innerHTML = `
           <div class="mod-title">${mod.name}</div>
-          <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
+          <div class="mod-tags">
+            ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
+          </div>
           <div class="mod-buttons">
             <a class="download-btn" href="${mod.file}" download>Download</a>
             <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
