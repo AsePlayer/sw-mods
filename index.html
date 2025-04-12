@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AsePlayer's Stick War Mod List</title>
   <style>
-    body { 
+    body {
       font-family: 'Segoe UI', sans-serif;
       background: #f7f7f7;
       padding: 2rem;
@@ -32,11 +32,14 @@
 
     .mods-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
       gap: 1.5rem;
     }
 
     .mod-card {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       background: white;
       padding: 1rem;
       border-radius: 10px;
@@ -46,6 +49,11 @@
 
     .mod-card:hover {
       transform: scale(1.02);
+    }
+
+    .mod-info {
+      flex: 1;
+      padding-right: 1rem;
     }
 
     .mod-title {
@@ -98,6 +106,13 @@
     .view-btn:hover {
       background: #333;
     }
+
+    .mod-image {
+      width: 160px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +141,7 @@
     let mods = [];
 
     async function fetchMods() {
-      const res = await fetch('mods.json');
+      const res = await fetch('mods.json?cacheBust=' + Date.now());
       mods = await res.json();
       populateTagFilter();
       displayMods(mods);
@@ -159,15 +174,20 @@
         const card = document.createElement('div');
         card.className = 'mod-card';
 
+        const imageHTML = mod.image ? `<img class="mod-image" src="${mod.image}" alt="${mod.name} screenshot"/>` : '';
+
         card.innerHTML = `
-          <div class="mod-title">${mod.name}</div>
-          <div class="mod-tags">
-            ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
+          <div class="mod-info">
+            <div class="mod-title">${mod.name}</div>
+            <div class="mod-tags">
+              ${mod.tags.map(t => `<span>${t}</span>`).join(' ')}
+            </div>
+            <div class="mod-buttons">
+              <a class="download-btn" href="${mod.file}" download>Download</a>
+              <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
+            </div>
           </div>
-          <div class="mod-buttons">
-            <a class="download-btn" href="${mod.file}" download>Download</a>
-            <a class="view-btn" href="${mod.link}" target="_blank">View Mod</a>
-          </div>
+          ${imageHTML}
         `;
 
         modsContainer.appendChild(card);
