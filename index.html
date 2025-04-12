@@ -160,7 +160,7 @@
       [...allTags].sort().forEach(tag => {
         if (!existingValues.has(tag)) {
           const option = document.createElement('option');
-          option.value = tag;
+          option.value = tag; 
           option.textContent = tag;
           tagFilter.appendChild(option);
         }
