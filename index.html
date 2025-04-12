@@ -52,8 +52,9 @@
     }
 
     .mod-info {
-      flex: 0 0 33%;
+      flex: 1;
       padding-right: 1rem;
+      max-width: 75%;
     }
 
     .mod-title {
@@ -107,20 +108,11 @@
       background: #333;
     }
 
-    .mod-image-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-left: 1rem;
-      padding-right: 0.5rem;
-    }
-
     .mod-image {
       width: 160px;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
-      flex-shrink: 0;
     }
   </style>
 </head>
@@ -169,7 +161,7 @@
       [...allTags].sort().forEach(tag => {
         if (!existingValues.has(tag)) {
           const option = document.createElement('option');
-          option.value = tag;
+          option.value = tag; 
           option.textContent = tag;
           tagFilter.appendChild(option);
         }
@@ -183,9 +175,7 @@
         const card = document.createElement('div');
         card.className = 'mod-card';
 
-        const imageHTML = mod.image
-          ? `<div class="mod-image-wrapper"><img class="mod-image" src="${mod.image}" alt="${mod.name} screenshot"/></div>`
-          : '';
+        const imageHTML = mod.image ? `<img class="mod-image" src="${mod.image}" alt="${mod.name} screenshot"/>` : '';
 
         card.innerHTML = `
           <div class="mod-info">
