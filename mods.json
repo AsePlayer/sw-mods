@@ -3,13 +3,13 @@
     "name": "Stick War: Hard Mode",
     "file": "hard-mode.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/hard-mode",
-    "tags": ["Hard", "Challenge"]
+    "tags": ["Order", "Hard"]
   },
   {
     "name": "Custom Units Pack",
     "file": "custom-units.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/custom-units",
-    "tags": ["Units", "Fun"]
+    "tags": ["Chaos", "Fun"]
   },
   {
     "name": "Epic Campaign Remix",
