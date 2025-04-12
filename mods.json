@@ -2,7 +2,7 @@
   {
     "name": "Chaos Campaign",
     "description": "It's time Medusa got a chance to tell her side of the story :)",
-    "link": "https://github.com/AsePlayer/Chaos-Campaign",
+    "link": "mods/chaos-campaign",
     "file": "https://github.com/AsePlayer/Chaos-Campaign/raw/refs/heads/main/chaoscampaign_v0.99_OrderContinues.swf",
     "image": "mods/chaos-campaign/thumbnail.jpg",
     "tags": ["Chaos", "Campaign", "Custom Units", "Tough Challenge"]
