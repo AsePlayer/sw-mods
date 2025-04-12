@@ -217,7 +217,7 @@
     function setRandomBackground() {
       const randomIndex = Math.floor(Math.random() * bgImages.length);
       const selected = bgImages[randomIndex];
-      document.body.style.background = url('${selected}') no-repeat center center fixed;
+      document.body.style.background = `url('${selected}') no-repeat center center fixed`;
       document.body.style.backgroundSize = 'cover';
     }
 
@@ -258,13 +258,13 @@
         card.className = 'mod-card';
 
         const imageHTML = mod.image
-          ? <img class="mod-image" src="${mod.image}" alt="${mod.name}" data-full="${mod.image}" />
+          ? `<img class="mod-image" src="${mod.image}" alt="${mod.name}" data-full="${mod.image}" />`
           : '';
 
-        card.innerHTML = 
+        card.innerHTML = `
           <div class="mod-info">
             <div class="mod-title">${mod.name}</div>
-            <div class="mod-tags">${mod.tags.map(t => <span>${t}</span>).join(' ')}</div>
+            <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
             <div class="mod-description">${mod.description || ''}</div>
             <div class="mod-buttons">
               <a class="download-btn" href="${mod.file}" download>Download</a>
@@ -272,7 +272,7 @@
             </div>
           </div>
           ${imageHTML}
-        ;
+        `;
 
         const img = card.querySelector('.mod-image');
         if (img) {
