@@ -104,6 +104,10 @@
     <input type="text" id="search" placeholder="Search mods..." />
     <select id="tag-filter">
       <option value="all">All Tags</option>
+      <option value="Order">Order</option>
+      <option value="Chaos">Chaos</option>
+      <option value="Elementals">Elementals</option>
+      <option value="Order (SW1)">Order (SW1)</option>
     </select>
   </div>
 
@@ -123,17 +127,25 @@
       displayMods(mods);
     }
 
-    function populateTagFilter() {
-      const allTags = new Set();
-      mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
-
-      [...allTags].sort().forEach(tag => {
-        const option = document.createElement('option');
-        option.value = tag;
-        option.textContent = tag;
-        tagFilter.appendChild(option);
-      });
+      function populateTagFilter() {
+        const existingValues = new Set();
+        Array.from(tagFilter.options).forEach(option => existingValues.add(option.value));
+    
+        const allTags = new Set();
+        mods.forEach(mod => mod.tags.forEach(tag => allTags.add(tag)));
+      
+        [...allTags]
+          .sort()
+          .forEach(tag => {
+            if (!existingValues.has(tag)) {
+              const option = document.createElement('option');
+              option.value = tag;
+              option.textContent = tag;
+              tagFilter.appendChild(option);
+            }
+          });
     }
+
 
     function displayMods(modList) {
       modsContainer.innerHTML = '';
