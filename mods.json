@@ -3,24 +3,28 @@
     "name": "Chaos Campaign",
     "file": "hard-mode.zip",
     "link": "https://github.com/AsePlayer/Chaos-Campaign",
-    "tags": ["Chaos", "Campaign", "Custom Units"]
+    "tags": ["Chaos", "Campaign", "Custom Units"],
+    "image": "mods/chaos-campaign/banner.png"
   },
   {
     "name": "Stick War: Hard Mode",
     "file": "hard-mode.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/hard-mode",
-    "tags": ["Order", "Hard", "Medium", "Well-done", "Over Easy", "AAAAAAAAAAAAAAAAAAAAAA"]
+    "tags": ["Order", "Hard", "Medium", "Well-done", "Over Easy", "AAAAAAAAAAAAAAAAAAAAAA"],
+    "image": "mods/chaos-campaign/banner.png"
   },
   {
     "name": "Custom Units Pack",
     "file": "custom-units.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/custom-units",
-    "tags": ["Chaos", "Fun"]
+    "tags": ["Chaos", "Fun"],
+    "image": "mods/chaos-campaign/banner.png"
   },
   {
     "name": "Epic Campaign Remix",
     "file": "epic-campaign.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/epic-campaign",
-    "tags": ["Story", "Remix"]
+    "tags": ["Story", "Remix"],
+    "image": "mods/chaos-campaign/banner.png"
   }
 ]
