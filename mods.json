@@ -1,6 +1,7 @@
 [
   {
     "name": "Chaos Campaign",
+    "description": "It's time Medusa got a chance to tell her side of the story :)",
     "file": "hard-mode.zip",
     "link": "https://github.com/AsePlayer/Chaos-Campaign",
     "tags": ["Chaos", "Campaign", "Custom Units"],
@@ -8,6 +9,7 @@
   },
   {
     "name": "Stick War: Hard Mode",
+    "description": "This mod adds new units and maps.",
     "file": "hard-mode.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/hard-mode",
     "tags": ["Order", "Hard", "Medium", "Well-done", "Over Easy", "AAAAAAAAAAAAAAAAAAAAAA"],
@@ -15,6 +17,7 @@
   },
   {
     "name": "Custom Units Pack",
+    "description": "This mod adds new units and maps.",
     "file": "custom-units.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/custom-units",
     "tags": ["Chaos", "Fun"],
@@ -22,6 +25,7 @@
   },
   {
     "name": "Epic Campaign Remix",
+    "description": "OK NOW THIS IS EPIC.",
     "file": "epic-campaign.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/epic-campaign",
     "tags": ["Story", "Remix"],
