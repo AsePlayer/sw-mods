@@ -2,33 +2,169 @@
   {
     "name": "Chaos Campaign",
     "description": "It's time Medusa got a chance to tell her side of the story :)",
-    "file": "https://github.com/AsePlayer/Chaos-Campaign/raw/refs/heads/main/chaoscampaign_v0.99_OrderContinues.swf",
     "link": "https://github.com/AsePlayer/Chaos-Campaign",
-    "tags": ["Chaos", "Campaign", "Custom Units"],
-    "image": "mods/chaos-campaign/banner.png"
+    "file": "https://github.com/AsePlayer/Chaos-Campaign/raw/refs/heads/main/chaoscampaign_v0.99_OrderContinues.swf",
+    "image": "mods/chaos-campaign/thumbnail.jpg",
+    "tags": ["Chaos", "Campaign", "Custom Units", "Tough Challenge"]
   },
   {
-    "name": "Stick War: Hard Mode",
-    "description": "This mod adds new units and maps.",
-    "file": "hard-mode.zip",
-    "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/hard-mode",
-    "tags": ["Order", "Hard", "Medium", "Well-done", "Over Easy", "AAAAAAAAAAAAAAAAAAAAAA"],
-    "image": "mods/chaos-campaign/banner2.jpg"
+    "name": "Stick War 2: Empires",
+    "description": "A mod where you can choose your empire to play against the enemy! The campaign isn't edited at all and equal to the original one in SW2, except one thing :)",
+    "link": "mods/stick-war-2-empires",
+    "file": "mods/stick-war-2-empires/Stick_War_2_Empires.swf",
+    "image": "mods/stick-war-2-empires/thumbnail.jpg",
+    "tags": ["Order", "Chaos", "Elementals", "Campaign"]
   },
   {
-    "name": "Custom Units Pack",
-    "description": "This mod adds new units and maps.",
-    "file": "custom-units.zip",
-    "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/custom-units",
-    "tags": ["Chaos", "Fun"],
-    "image": "mods/chaos-campaign/banner.png"
+    "name": "Elemental Empire",
+    "description": "Forge your own path to victory as you lead your Elemental Army into battle against formidable foes.",
+    "link": "mods/elemental-empire",
+    "file": "mods/elemental-empire/Stick War 2 Elemental Empire Beta v2.35.swf",
+    "image": "mods/elemental-empire/thumbnail.jpg",
+    "tags": ["Elementals", "Campaign"]
+  },
+  {
+    "name": "User Control",
+    "description": "Featuring everyone's favorite classic mechanic from Stick War, the ability to completely control one overpowered unit, reimagined in Stick War 2!",
+    "link": "mods/user-control",
+    "file": "mods/user-control/Stick_War_2.5_User_Control.swf",
+    "image": "mods/user-control/thumbnail.jpg",
+    "tags": ["Order", "Campaign"]
+  },
+  {
+    "name": "Golden Units",
+    "description": "Golden Units in this mod will actively earn gold with every attack. All gold units give gold when they die.",
+    "link": "mods/golden-units",
+    "file": "mods/golden-units/Golden_Units_2.0.swf",
+    "image": "mods/golden-units/thumbnail.jpg",
+    "tags": ["Order", "Custom Units"]
+  },
+  {
+    "name": "Stickmas War",
+    "description": "Instaqueue Units! Enjoy Passive Income! Spread Stickmas Cheer! Jam to Metal Christmas music! Try to beat the SURVIVAL AI!",
+    "link": "mods/stickmas-war",
+    "file": "mods/stickmas-war/Stickmas War.swf",
+    "image": "mods/stickmas-war/thumbnail.jpg",
+    "tags": ["Order", "Chaos", "Elementals", "Custom Game"]
+  },
+  {
+    "name": "Barricades",
+    "description": "3 levels, 1 for each empire contain 2 walls that are directly on top of each other at the center tower. Each wall has 15k hp. Both sides must destroy their respective walls to advance.",
+    "link": "mods/barricades",
+    "file": "mods/barricades/Barricades.swf",
+    "image": "mods/barricades/thumbnail.jpg",
+    "tags": ["Order", "Chaos", "Elementals", "Custom Game"]
   },
   {
     "name": "2v2",
     "description": "Each battle features 2 tribes battling it out with epic custom units and unique spawning!",
-    "file": "mods/2v2/2v2.swf",
-    "link": "mods/2v2/",
-    "tags": ["Order (SW1)", "Custom Units"],
-    "image": "mods/2v2/banner.jpg"
+    "link": "mods/2v2-sw1/",
+    "file": "mods/2v2-sw1/2v2.swf",
+    "image": "mods/2v2-sw1/thumbnail.jpg",
+    "tags": ["Order (SW1)", "Custom Units"]
+  },
+  {
+    "name": "Custom Giants",
+    "description": "Each Giant boasts its own special skin with effects that redefine the battlefield!",
+    "link": "mods/custom-giants/",
+    "file": "mods/custom-giants/Custom_Giants.swf",
+    "image": "mods/custom-giants/thumbnail.jpg",
+    "tags": ["Chaos", "Custom Units"]
+  },
+  {
+    "name": "Kaizo",
+    "description": "This mod makes everything much harder and 'Fun' with lots of new specialties and a reworked Upgrade system.",
+    "link": "mods/kaizo/",
+    "file": "mods/kaizo/SW2KaizoOfficial.swf",
+    "image": "mods/kaizo/thumbnail.jpg",
+    "tags": ["Order", "Campaign", "Tough Challenge"]
+  },
+  {
+    "name": "Realistic Mode",
+    "description": "Archidons one-shot unarmored units, Mana is replaced with Army Population, Shinobi lasts forever, Speartons move slow (cause of armor) and more!",
+    "link": "mods/realistic-mode/",
+    "file": "mods/realistic-mode/Realistic_Mode.swf",
+    "image": "mods/realistic-mode/thumbnail.jpg",
+    "tags": ["Order", "Custom Units"]
+  },
+  {
+    "name": "Gold Rush",
+    "description": "All the gold mines are in the middle! Good luck!",
+    "link": "mods/gold-rush-sw1/",
+    "file": "mods/gold-rush-sw1/Gold_Rush.swf",
+    "image": "mods/gold-rush-sw1/thumbnail.jpg",
+    "tags": ["Order (SW1)"]
+  },
+  {
+    "name": "Sicklewrath vs Bloodblades",
+    "description": "Many types of Sicklewrath vs Bloodblades!",
+    "link": "mods/sickle-vs-bloodblade-1/",
+    "file": "mods/sickle-vs-bloodblade-1/Sicklewrath_vs_Bloodblades.swf",
+    "image": "mods/sickle-vs-bloodblade-1/thumbnail.jpg",
+    "tags": ["Order", "Custom Units"]
+  },
+  {
+    "name": "Sicklewrath vs Bloodblades 2",
+    "description": "The rematch of a century",
+    "link": "mods/sickle-vs-bloodblade-2/",
+    "file": "mods/sickle-vs-bloodblade-2/Sicklewrath_vs_Blood_Blades_2.swf",
+    "image": "mods/sickle-vs-bloodblade-2/thumbnail.jpg",
+    "tags": ["Order", "Custom Units"]
+  },
+  {
+    "name": "The Mysterious Unknown",
+    "description": "Who knows what awaits in the mysterious unknown?",
+    "link": "mods/mystery-unknown/",
+    "file": "mods/mystery-unknown/The_Mysterious_Unknown_Nerfed.swf",
+    "image": "mods/mystery-unknown/thumbnail.jpg",
+    "tags": ["Order", "Custom Units"]
+  },
+  {
+    "name": "New Units",
+    "description": "New Units in Stick War 1!",
+    "link": "mods/new-units-sw1/",
+    "file": "mods/new-units-sw1/SW1_New_Units_Part1.swf",
+    "image": "mods/new-units-sw1/thumbnail.jpg",
+    "tags": ["Order (SW1)", "Custom Units"]
+  },
+  {
+    "name": "Remixed! (Part 1)",
+    "description": "Re-experience the popular hit sequel web game Stick War 2 by StickPage Studios in an entire remix of more interactable plot line and a new age of modern challenges.",
+    "link": "mods/remix-part-1/",
+    "file": "mods/remix-part-1/Remix_Part_1.swf",
+    "image": "mods/remix-part-1/thumbnail.jpg",
+    "tags": ["Order", "Campaign", "Custom Units"]
+  },
+  {
+    "name": "Remixed! (Part 2)",
+    "description": "Re-experience the popular hit sequel web game Stick War 2 by StickPage Studios in an entire remix of more interactable plot line and a new age of modern challenges.",
+    "link": "mods/remix-part-2/",
+    "file": "mods/remix-part-2/Remix_Part_2.swf",
+    "image": "mods/remix-part-2/thumbnail.jpg",
+    "tags": ["Order", "Campaign", "Custom Units"]
+  },
+  {
+    "name": "Stick War",
+    "description": "Play the game Stick War, one of the biggest most fun, challenging, and addicting stick figure games online.",
+    "link": "mods/stick-war-1-og/",
+    "file": "mods/stick-war-1-og/Stick_War_1.swf",
+    "image": "mods/stick-war-1-og/thumbnail.jpg",
+    "tags": ["Order (SW1)", "Original", "Campaign"]
+  },
+  {
+    "name": "Stick War 2: Order Empire",
+    "description": "The epic sequel to the hit strategy game Stick War!",
+    "link": "mods/stick-war-2-og/",
+    "file": "mods/stick-war-2-og/Stick_War_2_Order_Empire.swf",
+    "image": "mods/stick-war-2-og/thumbnail.jpg",
+    "tags": ["Order", "Chaos", "Original", "Campaign"]
+  },
+  {
+    "name": "Stick Empires",
+    "description": "Battle players from around the world online as Order, Chaos or Elementals!",
+    "link": "mods/stick-empires-og/",
+    "file": "mods/stick-empires-og/Stick_Empires.swf",
+    "image": "mods/stick-empires-og/thumbnail.jpg",
+    "tags": ["Order", "Chaos", "Elementals", "Original"]
   }
 ]

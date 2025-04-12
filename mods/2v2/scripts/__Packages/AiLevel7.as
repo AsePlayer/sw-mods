@@ -1,9 +1,0 @@
-if(!_global.AiLevel7)
-{
-     §§push(_global);
-     §§push("AiLevel7");
-}
-else
-{
-     §§pop();
-}
