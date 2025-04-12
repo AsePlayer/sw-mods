@@ -12,11 +12,11 @@
       position: relative;
       min-height: 100vh;
       background-size: cover;
-      background-repeat: no-repeat;
+      background-repeat: no-repeat; 
       background-position: center;
-      margin: 0;
     }
 
+    /* Dark overlay for better visibility */
     body::before {
       content: "";
       position: fixed;
@@ -29,20 +29,8 @@
 
     h1 {
       text-align: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       color: white;
-    }
-
-    p.download-links {
-      text-align: center;
-      margin-top: -0.25rem;
-      color: white;
-    }
-
-    p.download-links a {
-      color: #00c3ff;
-      text-decoration: underline;
-      margin: 0 0.2rem;
     }
 
     #controls {
@@ -60,22 +48,8 @@
 
     .mods-grid {
       display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
       gap: 1.5rem;
-      grid-template-columns: 1fr;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .mods-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .mods-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
     }
 
     .mod-card {
@@ -130,7 +104,6 @@
       display: flex;
       gap: 0.5rem;
       margin-top: 0.5rem;
-      flex-wrap: wrap;
     }
 
     .download-btn,
@@ -158,7 +131,7 @@
 
     .mod-image {
       width: 160px;
-      aspect-ratio: 4 / 3;
+      height: auto;
       border-radius: 8px;
       object-fit: cover;
       cursor: pointer;
@@ -169,6 +142,7 @@
       transform: scale(1.05);
     }
 
+    /* Lightbox styles */
     #lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -191,13 +165,12 @@
 </head>
 <body>
   <h1>AsePlayer's Stick War Mod List</h1>
-  <p class="download-links">
-    Download Flash Player Projector to play these Mods:
-    <a href="flash/Windows Flash Projector.zip" download>Windows</a>,
-    <a href="flash/Mac Flash Projector.zip" download>Mac</a>,
-    <a href="flash/Linux Flash Projector.tar.gz" download>Linux</a>
-  </p>
-
+  <p style="text-align: center; margin-top: -0.5rem; color: white;">
+  Download Flash Player Projector to play these Mods: 
+  <a href="flash/Windows Flash Projector.zip" download style="color: #00c3ff; text-decoration: underline;">Windows</a>, 
+  <a href="flash/Mac Flash Projector.zip" download style="color: #00c3ff; text-decoration: underline;">Mac</a>, 
+  <a href="flash/Linux Flash Projector.tar.gz" download style="color: #00c3ff; text-decoration: underline;">Linux</a>
+</p>
   <div id="controls">
     <input type="text" id="search" placeholder="Search mods..." />
     <select id="tag-filter">
@@ -212,6 +185,7 @@
 
   <div class="mods-grid" id="mods-container"></div>
 
+  <!-- Lightbox -->
   <div id="lightbox">
     <img src="" alt="Full mod preview" />
   </div>
@@ -224,17 +198,26 @@
     const lightboxImg = lightbox.querySelector('img');
 
     const bgImages = [
-      'backgrounds/1.jpg', 'backgrounds/2.jpg', 'backgrounds/3.jpg',
-      'backgrounds/4.jpg', 'backgrounds/5.jpg', 'backgrounds/6.jpg',
-      'backgrounds/7.jpg', 'backgrounds/8.jpg', 'backgrounds/9.jpg',
-      'backgrounds/10.jpg', 'backgrounds/11.jpg', 'backgrounds/12.jpg',
-      'backgrounds/13.jpg', 'backgrounds/14.jpg'
+      'backgrounds/1.jpg',
+      'backgrounds/2.jpg',
+      'backgrounds/3.jpg',
+      'backgrounds/4.jpg',
+      'backgrounds/5.jpg',
+      'backgrounds/6.jpg',
+      'backgrounds/7.jpg',
+      'backgrounds/8.jpg',
+      'backgrounds/9.jpg',
+      'backgrounds/10.jpg',
+      'backgrounds/11.jpg',
+      'backgrounds/12.jpg',
+      'backgrounds/13.jpg',
+      'backgrounds/14.jpg'
     ];
 
     function setRandomBackground() {
       const randomIndex = Math.floor(Math.random() * bgImages.length);
       const selected = bgImages[randomIndex];
-      document.body.style.background = `url('${selected}') no-repeat center center fixed`;
+      document.body.style.background = url('${selected}') no-repeat center center fixed;
       document.body.style.backgroundSize = 'cover';
     }
 
@@ -260,7 +243,7 @@
       [...allTags].sort().forEach(tag => {
         if (!existingValues.has(tag)) {
           const option = document.createElement('option');
-          option.value = tag;
+          option.value = tag; 
           option.textContent = tag;
           tagFilter.appendChild(option);
         }
@@ -275,13 +258,13 @@
         card.className = 'mod-card';
 
         const imageHTML = mod.image
-          ? `<img class="mod-image" src="${mod.image}" alt="${mod.name}" data-full="${mod.image}" />`
+          ? <img class="mod-image" src="${mod.image}" alt="${mod.name}" data-full="${mod.image}" />
           : '';
 
-        card.innerHTML = `
+        card.innerHTML = 
           <div class="mod-info">
             <div class="mod-title">${mod.name}</div>
-            <div class="mod-tags">${mod.tags.map(t => `<span>${t}</span>`).join(' ')}</div>
+            <div class="mod-tags">${mod.tags.map(t => <span>${t}</span>).join(' ')}</div>
             <div class="mod-description">${mod.description || ''}</div>
             <div class="mod-buttons">
               <a class="download-btn" href="${mod.file}" download>Download</a>
@@ -289,7 +272,7 @@
             </div>
           </div>
           ${imageHTML}
-        `;
+        ;
 
         const img = card.querySelector('.mod-image');
         if (img) {
