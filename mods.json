@@ -1,5 +1,11 @@
 [
   {
+    "name": "Chaos Campaign",
+    "file": "hard-mode.zip",
+    "link": "https://github.com/AsePlayer/Chaos-Campaign",
+    "tags": ["Chaos", "Campaign", "Custom Units"]
+  },
+  {
     "name": "Stick War: Hard Mode",
     "file": "hard-mode.zip",
     "link": "https://github.com/yourusername/stickwar-mods/tree/main/mods/hard-mode",
