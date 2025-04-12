@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AsePlayer's Stick War Mod List</title>
   <style>
     body {
@@ -14,24 +14,37 @@
       background-size: cover;
       background-repeat: no-repeat; 
       background-position: center;
+      margin: 0;
     }
 
-    /* Dark overlay for better visibility */
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background: rgba(0, 0, 0, 0.5);
       z-index: -1;
-      pointer-events: none;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       color: white;
+    }
+
+    p.download-flash {
+      text-align: center;
+      margin-top: -0.5rem;
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1rem;
+    }
+
+    p.download-flash a {
+      color: #00c3ff;
+      text-decoration: underline;
+      margin: 0 0.25rem;
     }
 
     #controls {
@@ -49,12 +62,15 @@
 
     .mods-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
+      max-width: 1600px;
+      margin: 0 auto;
     }
 
     .mod-card {
       display: flex;
+      flex-direction: row;
       background: white;
       padding: 1rem;
       border-radius: 10px;
@@ -69,7 +85,6 @@
     .mod-info {
       flex: 1;
       padding-right: 1rem;
-      max-width: 75%;
     }
 
     .mod-title {
@@ -133,11 +148,12 @@
 
     .mod-image {
       width: 160px;
-      height: auto;
+      aspect-ratio: 4 / 3;
       border-radius: 8px;
       object-fit: cover;
       cursor: pointer;
       transition: transform 0.2s ease;
+      flex-shrink: 0;
     }
 
     .mod-image:hover {
@@ -164,12 +180,7 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
-    /* Mobile tweaks */
     @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-
       .mod-card {
         flex-direction: column;
         align-items: center;
@@ -177,13 +188,12 @@
 
       .mod-info {
         padding-right: 0;
-        max-width: 100%;
         text-align: center;
       }
 
       .mod-image {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         margin-top: 1rem;
       }
     }
@@ -191,11 +201,11 @@
 </head>
 <body>
   <h1>AsePlayer's Stick War Mod List</h1>
-  <p style="text-align: center; margin-top: -0.5rem; color: white;">
-    Download Flash Player Projector to play these Mods: 
-    <a href="flash/Windows Flash Projector.zip" download style="color: #00c3ff; text-decoration: underline;">Windows</a>, 
-    <a href="flash/Mac Flash Projector.zip" download style="color: #00c3ff; text-decoration: underline;">Mac</a>, 
-    <a href="flash/Linux Flash Projector.tar.gz" download style="color: #00c3ff; text-decoration: underline;">Linux</a>
+  <p class="download-flash">
+    Download Flash Player Projector to play these Mods:
+    <a href="flash/Windows Flash Projector.zip" download>Windows</a>,
+    <a href="flash/Mac Flash Projector.zip" download>Mac</a>,
+    <a href="flash/Linux Flash Projector.tar.gz" download>Linux</a>
   </p>
 
   <div id="controls">
@@ -212,7 +222,6 @@
 
   <div class="mods-grid" id="mods-container"></div>
 
-  <!-- Lightbox -->
   <div id="lightbox">
     <img src="" alt="Full mod preview" />
   </div>
@@ -225,25 +234,15 @@
     const lightboxImg = lightbox.querySelector('img');
 
     const bgImages = [
-      'backgrounds/1.jpg',
-      'backgrounds/2.jpg',
-      'backgrounds/3.jpg',
-      'backgrounds/4.jpg',
-      'backgrounds/5.jpg',
-      'backgrounds/6.jpg',
-      'backgrounds/7.jpg',
-      'backgrounds/8.jpg',
-      'backgrounds/9.jpg',
-      'backgrounds/10.jpg',
-      'backgrounds/11.jpg',
-      'backgrounds/12.jpg',
-      'backgrounds/13.jpg',
-      'backgrounds/14.jpg'
+      'backgrounds/1.jpg', 'backgrounds/2.jpg', 'backgrounds/3.jpg',
+      'backgrounds/4.jpg', 'backgrounds/5.jpg', 'backgrounds/6.jpg',
+      'backgrounds/7.jpg', 'backgrounds/8.jpg', 'backgrounds/9.jpg',
+      'backgrounds/10.jpg', 'backgrounds/11.jpg', 'backgrounds/12.jpg',
+      'backgrounds/13.jpg', 'backgrounds/14.jpg'
     ];
 
     function setRandomBackground() {
-      const randomIndex = Math.floor(Math.random() * bgImages.length);
-      const selected = bgImages[randomIndex];
+      const selected = bgImages[Math.floor(Math.random() * bgImages.length)];
       document.body.style.background = `url('${selected}') no-repeat center center fixed`;
       document.body.style.backgroundSize = 'cover';
     }
