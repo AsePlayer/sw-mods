@@ -3,7 +3,7 @@
     "name": "Chaos Campaign",
     "description": "Play as Queen Medusa, ex-leader of the Chaos Empire! Regain your following and destroy all that stand in your way on your path to reclaim Inamorta!",
     "link": "mods/chaos-campaign",
-    "file": "mods/chaos-campaign/chaoscampaign_v1.0",
+    "file": "mods/chaos-campaign/chaoscampaign_v1.0.swf",
     "image": "mods/chaos-campaign/thumbnail.jpg",
     "tags": ["Chaos", "Campaign", "Custom Units", "Tough Challenge"]
   },
