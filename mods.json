@@ -1,9 +1,9 @@
 [
   {
     "name": "Chaos Campaign",
-    "description": "It's time Medusa got a chance to tell her side of the story :)",
+    "description": "Play as Queen Medusa, ex-leader of the Chaos Empire! Regain your following and destroy all that stand in your way on your path to reclaim Inamorta!",
     "link": "mods/chaos-campaign",
-    "file": "https://github.com/AsePlayer/Chaos-Campaign/raw/refs/heads/main/chaoscampaign_v0.99_OrderContinues.swf",
+    "file": "mods/chaos-campaign/chaoscampaign_v1.0",
     "image": "mods/chaos-campaign/thumbnail.jpg",
     "tags": ["Chaos", "Campaign", "Custom Units", "Tough Challenge"]
   },
@@ -49,7 +49,7 @@
   },
   {
     "name": "Barricades",
-    "description": "3 levels, 1 for each empire contain 2 walls that are directly on top of each other at the center tower. Each wall has 15k hp. Both sides must destroy their respective walls to advance.",
+    "description": "3 levels, 1 for each empire. Each wall has 15k hp. Both sides must destroy their respective walls to advance.",
     "link": "mods/barricades",
     "file": "mods/barricades/Barricades.swf",
     "image": "mods/barricades/thumbnail.jpg",
@@ -149,7 +149,7 @@
     "link": "mods/stick-war-1-og/",
     "file": "mods/stick-war-1-og/Stick_War_1.swf",
     "image": "mods/stick-war-1-og/thumbnail.jpg",
-    "tags": ["Order (SW1)", "Original", "Campaign"]
+    "tags": ["Order (SW1)", "Original Series", "Campaign"]
   },
   {
     "name": "Stick War 2: Order Empire",
@@ -157,7 +157,7 @@
     "link": "mods/stick-war-2-og/",
     "file": "mods/stick-war-2-og/Stick_War_2_Order_Empire.swf",
     "image": "mods/stick-war-2-og/thumbnail.jpg",
-    "tags": ["Order", "Chaos", "Original", "Campaign"]
+    "tags": ["Order", "Chaos", "Original Series", "Campaign"]
   },
   {
     "name": "Stick Empires",
@@ -165,6 +165,6 @@
     "link": "mods/stick-empires-og/",
     "file": "mods/stick-empires-og/Stick_Empires.swf",
     "image": "mods/stick-empires-og/thumbnail.png",
-    "tags": ["Order", "Chaos", "Elementals", "Original"]
+    "tags": ["Order", "Chaos", "Elementals", "Original Series"]
   }
 ]
